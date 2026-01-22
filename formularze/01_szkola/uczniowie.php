@@ -43,6 +43,21 @@ $students = $result -> fetch_all(1);
         
         ?>
     </table>
+
+    <h3>Aktualizacja</h3>
+    <form action="aktualizacja.php" method="post">
+        <label for="id">Podaj id ucznia</label>
+        <input type="text" name="id_f" id="id">
+        <button>Wyślij</button>
+    </form>
+
+    <h3>Usuwanie</h3>
+    <form action="usuwanie.php" method="post">
+        <label for="id">Podaj id ucznia</label>
+        <input type="text" name="id_f" id="id">
+        <button>Wyślij</button>
+    </form>
+
 </body>
 </html>
 
