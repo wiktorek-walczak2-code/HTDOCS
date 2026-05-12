@@ -1,0 +1,25 @@
+-- Zapytanie 1: wybierające jedynie identyfikatory, imiona i nazwiska tych osób spośród personelu, których status to policjant
+
+SELECT id, imie, nazwisko
+FROM personel
+WHERE status='policjant';
+
+-- Zapytanie 2: wybierające jedynie typ i zliczające liczbę pojazdów zgrupowanych według typu (zapytanie wybiera liczbę karetek i radiowozów)
+
+SELECT typ, COUNT(*)
+FROM pojazdy
+GROUP BY typ;
+
+-- Zapytanie 3: wybierające jedynie te identyfikatory i nazwiska osób spośród personelu, których id nie pojawia się w rejestrze
+
+SELECT id, nazwisko
+FROM personel
+WHERE id NOT IN
+    (SELECT id_personel
+    FROM rejestr);
+
+-- Zapytanie 4: wstawiające rekord do tabeli rejestr: identyfikator personelu: 1, identyfikator pojazdu: 14, automatycznie wpisywana aktualna data, klucz generowany automatycznie
+
+INSERT INTO rejestr
+VALUES
+    (NULL,current_date,1,14);
